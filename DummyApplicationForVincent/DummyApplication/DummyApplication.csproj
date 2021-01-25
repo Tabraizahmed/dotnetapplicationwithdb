@@ -174,7 +174,12 @@
     <Compile Include="Migrations\202101221509295_initialConfig.designer.cs">
       <DependentUpon>202101221509295_initialConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101251559085_addingResutrantTable.cs" />
+    <Compile Include="Migrations\202101251559085_addingResutrantTable.designer.cs">
+      <DependentUpon>202101251559085_addingResutrantTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Resturants.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -345,6 +350,9 @@
     <EmbeddedResource Include="Migrations\202101221509295_initialConfig.resx">
       <DependentUpon>202101221509295_initialConfig.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101251559085_addingResutrantTable.resx">
+      <DependentUpon>202101251559085_addingResutrantTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
@@ -371,7 +379,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57894</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44312/</IISUrl>
+          <IISUrl>https://localhost:44313/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

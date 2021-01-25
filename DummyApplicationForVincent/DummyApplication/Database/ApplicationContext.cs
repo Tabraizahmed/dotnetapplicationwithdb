@@ -10,5 +10,6 @@ namespace DummyApplication.Database
         }
 
         public DbSet<Users> Users { get; set; }
+        public DbSet<Resturants> Resturants { get; set; }
     }
 }
