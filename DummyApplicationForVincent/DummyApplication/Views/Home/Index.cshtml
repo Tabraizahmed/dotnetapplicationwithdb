@@ -25,3 +25,25 @@
         </table>
     </div>
 </div>
+@section Scripts{
+    @Scripts.Render("~/Scripts/jquery.signalR-2.4.1.min.js");
+    @Scripts.Render("~/signalr/hubs");
+    <script>
+        var connection = $.hubConnection();
+        var hub = connection.createHubProxy("UserHub");
+        hub.on("updateUsers", function (statistics) {
+            //var rows = "";
+            //for (var i = 0; i < statistics.length; i++) {
+            //    rows += "<tr>" +
+            //        "<td>" + statistics[i].UserName + "</td>" +
+            //        "<td>" + statistics[i].UserEmail + "</td>" +
+            //        "<td>" + statistics[i].UserAddress + "</td>" +
+
+            //    }
+            console.log(statistics);
+        });
+
+        connection.start();
+    </script>
+
+}

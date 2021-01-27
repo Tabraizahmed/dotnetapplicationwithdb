@@ -3,6 +3,8 @@ using DummyApplication.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Microsoft.AspNet.SignalR;
+using DummyApplication.Hubs;
 
 namespace DummyApplication.Controllers
 {
@@ -37,9 +39,23 @@ namespace DummyApplication.Controllers
             {
                 context.Users.Add(obj);
                 context.SaveChanges();
+                NotifyUpdates();
             }
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Add");
+        }
+
+        public void NotifyUpdates()
+        {
+            var hubContext = GlobalHost.ConnectionManager.GetHubContext<UserHub>();
+            if (hubContext != null)
+            {
+                using (var context = new ApplicationContext())
+                {
+                    var stats = context.Users.ToList();
+                    hubContext.Clients.All.updateUsers(stats);
+                }
+            }
         }
     }
 }
